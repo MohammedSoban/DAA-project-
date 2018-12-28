@@ -1,10 +1,12 @@
 #include<iostream>
 #include<conio.h>
+#include<cstdlib>
+#include <time.h>
 
 using namespace std;
 
 
-void printEachPass(int arr[50],int n){
+void printEachPass(int arr[1000],int n){
 
       int i;
 
@@ -15,9 +17,9 @@ void printEachPass(int arr[50],int n){
 
 }
 
-void bubbleSort(int arr[50],int n){
+void bubbleSort(int arr[1000],int n){
 
-        int i,j,temp,countSwap=0;
+        int i,j,temp,countSwap=0,lastElement=0;
 
     cout<<"Sorting array using bubble sort technique...\n";
 
@@ -41,11 +43,15 @@ void bubbleSort(int arr[50],int n){
               countSwap++;//counting sawp fucntions
             }
 
+           lastElement++;//pointing to sorted elemnet;
+
 		}
 
-        cout<<"sorted element in this parse = "<<arr[countSwap]<<endl;
+
+        cout<<"sorted element in this parse = "<<arr[lastElement]<<endl;
 		cout<<"swap count= "<<countSwap<<endl;//print swap count after each parse
 		countSwap=0;//reseting to zero for next parse
+		lastElement=0;//resting to zero after each parse;
 		cout<<"_____________"<<endl;
 
 	}
@@ -54,7 +60,7 @@ void bubbleSort(int arr[50],int n){
 
 }
 
-void selectionSort(int arr[50] ,int n)
+void selectionSort(int arr[1000] ,int n)
 {
 
 int i,j,temp,countSwap=0;
@@ -95,19 +101,38 @@ for(i=0; i<n; i++)
 int main()
 {
 
-	int n, i, arr[50],arr2[50];
+	int n, i, arr[1000],arr2[1000],begin,end;
+
+
+	srand(time(NULL));
+
 	cout<<"Enter total number of elements :";
 	cin>>n;
-	cout<<"Enter "<<n<<" numbers :";
+
+    cout<<endl;
+
+	cout<<"Enter range of number between you want to randomly generate:"<<endl;
+	 cout<<endl;
+	cout<<"Range start from:"<<endl;
+    cin>>begin;
+    cout<<"Range end at:"<<endl;
+    cin>>end;
+    cout<<endl;
+
 	for(i=0; i<n; i++)
 	{
-		cin>>arr[i];
+		arr[i]=begin + (rand() %(end - begin + 1));
 	}
 
 	for(i=0; i<n; i++)
 	{
 		arr2[i]=arr[i];
+
 	}
+
+
+
+
 
     bubbleSort(arr,n);
     cout<<"_________________________________________________________________________________________________________________________________________________________________"<<endl;

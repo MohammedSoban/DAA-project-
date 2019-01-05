@@ -19,7 +19,7 @@ void printEachPass(int arr[1000],int n){
 
 void bubbleSort(int arr[1000],int n){
 
-        int i,j,temp,countSwap=0,lastElement=0;
+        int i,j,    temp,countSwap=0,lastElement=0;
 
     cout<<"Sorting array using bubble sort technique...\n";
 
@@ -130,7 +130,15 @@ int main()
 
 	}
 
+	cout<<"Original array"<<endl;
 
+	for(i=0; i<n; i++)
+	{
+		cout<<arr[i]<<" ";
+	}
+
+    cout<<endl;
+	cout<<"________________________________________________________________________________________"<<endl;
 
 
 
